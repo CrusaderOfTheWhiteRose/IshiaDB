@@ -1,0 +1,27 @@
+-- Define namespace
+MyNameSpace d namespace;
+-- Define database
+MyDataBase d database;
+-- Define table for images
+MyImageTable d table;
+-- Add marks that will create small, compressed images
+-- TAG:QUALITY_(0-31):SCALE_DOWN_IN_X_TIMES
+-- 3 is maximum
+MyImageTable m { l:31:6, m:31:4 };
+-- Maximum size of incoming image
+MyImageTable s 10mb;
+-- Optimise the original using -q:v 0-31
+MyImageTable o 1;
+-- Set formats it will format every image into
+-- It will also make it possible to upload those formats
+-- 4 is maximum
+MyImageTable f { avif, webp };
+-- Set extensions that will be able to upload
+-- 4 is maximum
+MyImageTable e { jpg, jpeg, png, gif };
+-- Define table for videos
+MyVideoTable d table;
+MyVideoTable s 40mb;
+MyVideoTable o 1;
+MyVideoTable f { webm };
+MyVideoTable e { mp4, avi };
